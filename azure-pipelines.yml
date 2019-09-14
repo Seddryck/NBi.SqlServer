@@ -5,6 +5,11 @@ pool:
   - visualstudio
   - vstest
 
+variables:
+  BuildConfiguration: Debug
+  BuildPlatform: Any CPU
+  Parameters.solution: NBi.SqlServer.sln
+
 steps:
 - script: 'gitversion /l console /output buildserver /updateAssemblyInfo'
   displayName: 'Run GitVersion'
@@ -16,12 +21,12 @@ steps:
 - task: NuGetCommand@2
   displayName: 'NuGet restore'
   inputs:
-    restoreSolution: 'NBi.SqlServer.sln'
+    restoreSolution: '$(Parameters.solution)'
 
 - task: VSBuild@1
-  displayName: 'Build solution NBi.SqlServer.sln.sln'
+  displayName: 'Build $(Parameters.solution)'
   inputs:
-    solution: 'NBi.SqlServer.sln'
+    solution: '$(Parameters.solution)'
     vsVersion: 15.0
     platform: '$(BuildPlatform)'
     configuration: '$(BuildConfiguration)'
