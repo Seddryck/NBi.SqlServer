@@ -15,7 +15,7 @@ after_build:
 
     .\.packages\package-NBi-SqlServer.ps1 $nuget_version
 test_script:
-- cmd: nunit-console-x86 NBi.Testing.Core.SqlServer.Unit\bin\debug\NBi.Testing.Core.SqlServer.Unit.dll
+- cmd: nunit3-console NBi.Testing.Core.SqlServer.Unit\bin\debug\NBi.Testing.Core.SqlServer.Unit.dll
 artifacts:
 - path: NBi.Testing.Core.SqlServer\bin\Debug
   name: NBi.SqlServer
