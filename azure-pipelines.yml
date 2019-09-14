@@ -1,12 +1,12 @@
+parameters:
+  solution: 'NBi.SqlServer.sln'
+
 pool:
   name: Hosted VS2017
   demands:
   - msbuild
   - visualstudio
   - vstest
-
-parameters:
-  solution: 'NBi.SqlServer.sln'
 
 steps:
 - script: 'gitversion /l console /output buildserver /updateAssemblyInfo'
