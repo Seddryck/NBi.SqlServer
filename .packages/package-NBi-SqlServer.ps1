@@ -10,7 +10,7 @@ Write-Host "Calculating dependencies ..."
 $dependencies = @{}
 $solutionRoot = Join-Path ($root) ".."
 Write-Host "Looking for projects in $solutionRoot ..."
-$projects = Get-ChildItem $solutionRoot | ?{ $_.PSIsContainer -and $_.Name -like "*SqlServer*"-and $_.Name -Like "*Integration*"} | select Name, FullName
+$projects = Get-ChildItem $solutionRoot | ?{ $_.PSIsContainer -and $_.Name -like "*SqlServer*"-and $_.Name -notLike "*Test*"} | select Name, FullName
 foreach($proj in $projects)
 {
     $projName = $proj.name
@@ -29,8 +29,9 @@ foreach($proj in $projects)
 
 Write-Host "Found $($dependencies.Count) dependencies ..."
 $depList = $dependencies.Values -join [Environment]::NewLine + "`t`t"
+Write-Host $depList
 
-#For NBi.CosmosDb (dll)
+#For NBi.SqlServer (dll)
 $lib = "$root\NBi.SqlServer\lib\461\"
 If (Test-Path $lib)
 {

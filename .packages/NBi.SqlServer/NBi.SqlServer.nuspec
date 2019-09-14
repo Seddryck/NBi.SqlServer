@@ -15,8 +15,7 @@
     <copyright>Copyright 2019</copyright>
     <tags>Test NBi SqlServer</tags>
 	<dependencies>
-		<dependency id="NBi.Framework" version="1.21.0" />
-		<dependency id="Microsoft.SqlServer.SqlManagementObjects" version="140.17283.0" />
+		$depList$
 		<dependency id="System.Threading.Tasks.Extensions" version="4.5.3" />
 	</dependencies>
   </metadata>
