@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<testSuite name="Batch execution" xmlns="http://NBi/TestSuite">
+  <settings>
+    <default apply-to="system-under-test">
+      <connectionString>Data Source=mhknbn2kdz.database.windows.net;Initial Catalog=AdventureWorks2012;User Id=sqlfamily;password=sqlf@m1ly</connectionString>
+    </default>
+  </settings>
+  <test name="Batch is executed" uid="0001">
+    <setup>
+      <sql-run path="Positive\" name="batch.sql" connectionString="Data Source=mhknbn2kdz.database.windows.net;Initial Catalog=AdventureWorks2012;User Id=sqlfamily;password=sqlf@m1ly" />
+    </setup>
+    <system-under-test>
+      <result-set>
+        <query>select 'ok'</query>
+      </result-set>
+    </system-under-test>
+    <assert>
+      <equal-to>
+        <result-set>
+          <query>select 'ok'</query>
+        </result-set>
+      </equal-to>
+    </assert>
+  </test>
+</testSuite>

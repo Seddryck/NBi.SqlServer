@@ -12,10 +12,10 @@ namespace NBi.Testing.Core.SqlServer.Acceptance
     [TestFixture]
     public class RuntimeOverrider : BaseRuntimeOverrider
     {
-        //By Acceptance Test Suite (file) create a Test Case
         [Test]
+        [TestCase("Batch.nbits")]
         [Category("Acceptance")]
-        public override void RunPositiveTestSuite(string filename)
+        public void RunPositiveTestSuite2(string filename)
             => base.RunPositiveTestSuite(filename);
 
     }
