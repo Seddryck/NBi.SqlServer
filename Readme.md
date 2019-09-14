@@ -17,7 +17,7 @@ NBi.SqlServer is an extension to the [NBi testing framework](http://www.nbi.io) 
 ![Still maintained](https://img.shields.io/maintenance/yes/2019.svg)
 [![Build Status](https://seddryck.visualstudio.com/NBi.SqlServer/_apis/build/status/NBi.SqlServer-CI?branchName=develop)](https://seddryck.visualstudio.com/NBi/_apis/build/status/NBi.SqlServer-CI?branchName=develop)
 
-**Continuous integration builds:** [![Build status](https://ci.appveyor.com/api/projects/status/8slgi0ca7wwg0msi?svg=true)](https://ci.appveyor.com/project/Seddryck/nbi-sqlserver)
+**Continuous integration builds:** [![Build status](https://ci.appveyor.com/api/projects/status/56o0y8ehy41cw9w5?svg=true)](https://ci.appveyor.com/project/Seddryck/nbi-sqlserver)
 [![Tests](https://img.shields.io/appveyor/tests/seddryck/nbi-sqlserver.svg)](https://ci.appveyor.com/project/Seddryck/nbi-sqlserver/build/tests)
 
 **Status:** [![stars badge](https://img.shields.io/github/stars/Seddryck/NBi.SqlServer.svg)](https://github.com/Seddryck/NBi.SqlServer/stargazers)
