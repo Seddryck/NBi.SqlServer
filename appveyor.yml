@@ -17,7 +17,7 @@ after_build:
 test_script:
 - cmd: nunit3-console NBi.Testing.Core.SqlServer.Unit\bin\debug\NBi.Testing.Core.SqlServer.Unit.dll
 artifacts:
-- path: NBi.SqlServer.Core\bin\Debug
+- path: NBi.Core.SqlServer\bin\Debug
   name: NBi.SqlServer
 - path: .nupkg\NBi.SqlServer.*.nupkg
   name: NBi.SqlServer
