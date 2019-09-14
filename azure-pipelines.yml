@@ -71,9 +71,17 @@ steps:
   condition: succeededOrFailed()
 
 - task: NuGetCommand@2
-  displayName: 'NuGet push'
+  displayName: 'Local NuGet push'
   inputs:
     command: push
     packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;'
     publishVstsFeed: '0b85ebc7-d3b9-4844-886e-848213247f91'
     allowPackageConflicts: true
+
+- task: NuGetCommand@2
+  displayName: 'Global NuGet push'
+  inputs:
+    command: push
+    nuGetFeedType: external
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;'
+    publishFeedCredentials: Nuget.org
