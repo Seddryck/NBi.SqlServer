@@ -5,6 +5,9 @@ pool:
   - visualstudio
   - vstest
 
+parameters:
+  solution: 'NBi.SqlServer.sln'
+
 steps:
 - script: 'gitversion /l console /output buildserver /updateAssemblyInfo'
   displayName: 'Run GitVersion'
@@ -19,7 +22,7 @@ steps:
     restoreSolution: '$(Parameters.solution)'
 
 - task: VSBuild@1
-  displayName: 'Build solution *.sln'
+  displayName: 'Build solution $(Parameters.solution).sln'
   inputs:
     solution: '$(Parameters.solution)'
     vsVersion: 15.0
@@ -29,7 +32,7 @@ steps:
 - task: VSTest@2
   displayName: 'VsTest - testAssemblies'
   inputs:
-    testAssemblyVer2: 'NBi.Testing*\bin\debug\NBi.Testing*.dll'
+    testAssemblyVer2: 'NBi.Testing*\\bin\\debug\\NBi.Testing*.dll'
     testFiltercriteria: 'TestCategory!=Olap & TestCategory!=Etl & TestCategory!=WindowsService & TestCategory!=ReportServerDB & TestCategory!=LocalSQL'
     vsTestVersion: 15.0
     codeCoverageEnabled: false
@@ -39,14 +42,14 @@ steps:
   displayName: 'Package Nuget'
   inputs:
     targetType: filePath
-    filePath: './.packages\package-NBi-SqlServer.ps1'
+    filePath: './.packages\\package-NBi-SqlServer.ps1'
     arguments: '$env:GitVersion_NuGetVersionV2'
 
 - task: CopyFiles@2
-  displayName: 'Copy Files to: $(build.artifactstagingdirectory)\Addin'
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)\\Addin'
   inputs:
-    SourceFolder: '$(system.defaultworkingdirectory)\NBi.Core.SqlServer\bin\Debug\'
-    TargetFolder: '$(build.artifactstagingdirectory)\Addin'
+    SourceFolder: '$(system.defaultworkingdirectory)\\NBi.Core.SqlServer\\bin\\Debug\\'
+    TargetFolder: '$(build.artifactstagingdirectory)\\Addin'
     CleanTargetFolder: true
   condition: succeededOrFailed()
 
