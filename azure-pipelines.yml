@@ -1,6 +1,3 @@
-parameters:
-  solution: 'NBi.SqlServer.sln'
-
 pool:
   name: Hosted VS2017
   demands:
@@ -19,12 +16,12 @@ steps:
 - task: NuGetCommand@2
   displayName: 'NuGet restore'
   inputs:
-    restoreSolution: '$(Parameters.solution)'
+    restoreSolution: 'NBi.SqlServer.sln'
 
 - task: VSBuild@1
-  displayName: 'Build solution $(Parameters.solution).sln'
+  displayName: 'Build solution NBi.SqlServer.sln.sln'
   inputs:
-    solution: '$(Parameters.solution)'
+    solution: 'NBi.SqlServer.sln'
     vsVersion: 15.0
     platform: '$(BuildPlatform)'
     configuration: '$(BuildConfiguration)'
