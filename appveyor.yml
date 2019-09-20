@@ -22,7 +22,7 @@ after_build:
 
     .\.packages\package-NBi-SqlServer.ps1 $nuget_version
 test_script:
-- cmd: nunit3-console NBi.Testing.Core.SqlServer.Unit\bin\$(platform)\$(configuration)\NBi.Testing.Core.SqlServer.Unit.dll
+- cmd: nunit3-console NBi.Testing.Core.SqlServer.Unit\bin\%platform%\%configuration%\NBi.Testing.Core.SqlServer.Unit.dll
 artifacts:
 - path: NBi.Core.SqlServer\bin\
   name: NBi.SqlServer.$(platform)
