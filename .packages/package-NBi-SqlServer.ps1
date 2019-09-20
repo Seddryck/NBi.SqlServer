@@ -38,7 +38,8 @@ If (Test-Path $lib)
 {
 	Remove-Item $lib -recurse
 }
-new-item -Path $lib -ItemType directory
+new-item -Path $lib\win10-x86\$subLib -ItemType directory
+new-item -Path $lib\win10-x64\$subLib -ItemType directory
 new-item -Path $root\..\.nupkg -ItemType directory -force
 Copy-Item $root\..\NBi.Core.SqlServer\bin\x86\Release\NBi.*SqlServer.dll $lib\win10-x86\$subLib
 Copy-Item $root\..\NBi.Core.SqlServer\bin\x64\Release\NBi.*SqlServer.dll $lib\win10-x64\$subLib
