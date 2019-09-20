@@ -7,6 +7,14 @@ platform:
   - x86
   - x64
   - Any CPU
+matrix:
+  exclude:
+    - configuration: Debug
+      platform: x86
+    - configuration: Debug
+      platform: x64
+    - configuration: Release
+      platform: Any CPU
 init:
 - cmd: git config --global core.autocrlf true
 before_build:
