@@ -13,6 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBi.Testing.Core.SqlServer.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".project", ".project", "{03CAB438-A851-4F0B-8DB3-17EF9E2172A6}"
 	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
 		AssemblyInfo.cs = AssemblyInfo.cs
 		build-multiple-version.ps1 = build-multiple-version.ps1
 		.packages\NBi.SqlServer\NBi.SqlServer.nuspec = .packages\NBi.SqlServer\NBi.SqlServer.nuspec
