@@ -32,15 +32,16 @@ $depList = $dependencies.Values -join [Environment]::NewLine + "`t`t"
 Write-Host $depList
 
 #For NBi.SqlServer (dll)
-$lib = "$root\NBi.SqlServer\lib\net461\"
+$lib = "$root\NBi.SqlServer\"
+$subLib = "lib\net461\"
 If (Test-Path $lib)
 {
 	Remove-Item $lib -recurse
 }
 new-item -Path $lib -ItemType directory
 new-item -Path $root\..\.nupkg -ItemType directory -force
-Copy-Item $root\..\NBi.Core.SqlServer\bin\x86\Release\NBi.*SqlServer.dll $lib\x86
-Copy-Item $root\..\NBi.Core.SqlServer\bin\x64\Release\NBi.*SqlServer.dll $lib\x64
+Copy-Item $root\..\NBi.Core.SqlServer\bin\x86\Release\NBi.*SqlServer.dll $lib\win10-x86\$subLib
+Copy-Item $root\..\NBi.Core.SqlServer\bin\x64\Release\NBi.*SqlServer.dll $lib\win10-x64\$subLib
 
 Write-Host "Setting .nuspec version tag to $version"
 
