@@ -1,5 +1,9 @@
 version: build.{build}
 image: Visual Studio 2017
+platform:
+  - x86
+  - x64
+  - Any CPU
 init:
 - cmd: git config --global core.autocrlf true
 before_build:
@@ -8,6 +12,7 @@ before_build:
 
     nuget restore
 build:
+  parallel: true
   verbosity: minimal
 after_build:
 - ps: >-
@@ -17,7 +22,7 @@ after_build:
 test_script:
 - cmd: nunit3-console NBi.Testing.Core.SqlServer.Unit\bin\debug\NBi.Testing.Core.SqlServer.Unit.dll
 artifacts:
-- path: NBi.Core.SqlServer\bin\Debug
+- path: NBi.Core.SqlServer\bin\
   name: NBi.SqlServer
 - path: .nupkg\NBi.SqlServer.*.nupkg
   name: NBi.SqlServer
