@@ -37,12 +37,6 @@ deploy:
     secure: 7LDAnpfRuEmLf/4hhERYnfy3tHLBqC7wqScUEviYVYkNvrM7C3NN0h73se3QuoNh
   on:
     APPVEYOR_REPO_TAG: true
-- provider: NuGet
-  server: https://www.myget.org/F/nbi-sqlserver/api/v2/package
-  api_key:
-    secure: +E89GuWTCkM1DpiRGoO3oRLIvLIjb8aPsHqNvga0ID/xdUx0cvDjI7XVdF12rmEm
-  on:
-    branch: develop
 - description: ''
   provider: GitHub
   auth_token:
